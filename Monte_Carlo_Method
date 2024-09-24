@@ -1,0 +1,17 @@
+Monte Carlo Cross Validation (MCCV) for time series data is a variant of the traditional cross-validation technique, adapted to address the sequential nature of time series data. Unlike typical random splits in cross-validation, MCCV ensures that the model training set always precedes the test set in time, which prevents data leakage (i.e., using future data to predict the past).
+
+### Key Steps:
+1. Random Splitting: The time series data is randomly split into multiple training and test sets, but with the constraint that all training data points occur before the corresponding test data points (to respect the temporal order).
+   
+2. Multiple Iterations: This process is repeated multiple times to produce different splits, and the model's performance is evaluated on each split.
+
+3. Evaluation: The final performance is averaged across all iterations to get a more robust evaluation of the model’s ability to generalize.
+
+### Benefits:
+- Provides a good balance between training on a wide range of data subsets while respecting time order.
+- Helps to assess the model’s performance variability.
+
+### Challenges:
+- The random splitting might not preserve the seasonality or trend components effectively in certain cases.
+  
+Monte Carlo CV for time series is a good approach when seeking to test how well a model generalizes across different points in time without violating temporal dependencies.
